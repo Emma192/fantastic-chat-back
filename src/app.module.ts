@@ -9,10 +9,8 @@ import { ConfigModule } from '@nestjs/config';
 import dbConfig from 'src/config/database.config';
 import { MySqlConfig } from './config/mysql.config';
 
-
-
-
 import * as dotenv from 'dotenv'
+import { UsersModule } from './users/users.module';
 
 dotenv.config()
 
@@ -32,6 +30,7 @@ dotenv.config()
       // }),
       // inject: [ConfigService],
     }),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
