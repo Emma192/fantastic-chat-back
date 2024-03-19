@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
+import { GroupMember } from "src/group-members/entities/group-member.entity";
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany } from "typeorm";
 
 @Entity('users')
 export class User {
@@ -6,15 +7,18 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    username: string;
+    @Column({ nullable: false })
+    userName: string;
 
-    @Column()
-    email:string;
+    @Column({ nullable: false })
+    email: string;
 
-    @Column()
-    password:string;
+    @Column({ nullable: false })
+    password: string;
 
     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP(6)' })
     createdAt: Date;
+
+    @OneToMany(() => GroupMember, groupMembers => groupMembers.member)
+    groups: GroupMember[];
 }
