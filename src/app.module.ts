@@ -16,6 +16,7 @@ import { MessagesModule } from './messages/messages.module';
 import { GroupsModule } from './groups/groups.module';
 import { GroupMembersModule } from './group-members/group-members.module';
 import { GroupMessagesModule } from './group-messages/group-messages.module';
+import { AuthModule } from './auth/auth.module';
 
 dotenv.config()
 
@@ -36,6 +37,7 @@ dotenv.config()
       // inject: [ConfigService],
     }),
     UsersModule,
+    AuthModule,
     FriendshipsModule,
     MessagesModule,
     GroupsModule,

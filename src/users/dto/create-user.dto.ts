@@ -1,6 +1,6 @@
 export class CreateUserDto {
     
-    userName: string
+    userName?: string
 
     email: string
 
